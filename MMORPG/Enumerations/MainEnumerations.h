@@ -72,6 +72,7 @@ UENUM(BlueprintType) enum class EResourceType : uint8
 UENUM(BlueprintType) enum class EWeaponType : uint8
 {
     None        UMETA(DisplayName = "None"),
+    Gauntlet    UMETA(DisplayName = "Gauntlet"),
     Sword       UMETA(DisplayName = "Sword"),
     Rapier      UMETA(DisplayName = "Rapier"),
     Bow         UMETA(DisplayName = "Bow"),
