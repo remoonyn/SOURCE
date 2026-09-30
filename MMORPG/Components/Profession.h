@@ -54,7 +54,7 @@ USTRUCT(BlueprintType) struct FST_Profession_Skill : public FTableRowBase
 
 public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Profession") FText Skill_Name;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Profession") UTexture2D* IconTexture;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Profession") UTexture2D* IconTexture = nullptr;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Profession") TMap<int32, int32> Required_Prof_Points;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Profession") TSubclassOf<UGameplayEffect> EffectClass;

@@ -76,7 +76,7 @@ USTRUCT(BlueprintType) struct FS_Recipe_Effect
 public:
    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Recipe") int32 Required_Crafts = 0;
    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Recipe") E_Recipe_Effect Effect_Type = E_Recipe_Effect::None;
-   UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Recipe") float Effect_Value = 0;
+   UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Recipe") float Effect_Value = 0.0;
 };
 
 
@@ -89,7 +89,7 @@ public:
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Recipe") int32 Index_Item = 0;
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Recipe") int32 Quantity = 0;
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Recipe") int32 Experience = 0;
-    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Recipe") float Time = 0;
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Recipe") float Time = 0.0;
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Recipe") E_Profession_Type Recipe_Type = E_Profession_Type::None;
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Recipe") TArray<FS_Recipe_Effect> Recipe_Effects;
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Recipe") TArray<FST_Item_Required> Required_Items;
@@ -138,9 +138,9 @@ public:
    // Текст диалога
    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Line") FText Line_Dialog; 
    // Для удобства дальнейшего заполнения таблицы НПС, чтобы понимать какие фразы являются стартовыми для диалогов
-   UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Line") bool Start; 
+   UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Line") bool Start = false; 
    // Завершает ли текущая реплика диалог? Ставим обязательно.
-   UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Line") bool Finish; 
+   UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Line") bool Finish = false; 
    // Тип строки
    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Line") E_Line_Type Line_Type = E_Line_Type::None; 
    // Тип диалог
@@ -156,17 +156,17 @@ USTRUCT(BlueprintType) struct FST_Drop_Harvest_Item
 
 public:
    // Имя из таблицы для следующей реплики 
-   UPROPERTY(EditAnywhere, BlueprintReadWrite) int32 Index_Item;
+   UPROPERTY(EditAnywhere, BlueprintReadWrite) int32 Index_Item = 0;
    // Минимальное количество возможных предметов
-   UPROPERTY(EditAnywhere, BlueprintReadWrite) int32 Quantity_Min;
+   UPROPERTY(EditAnywhere, BlueprintReadWrite) int32 Quantity_Min = 0;
    // Максимальное количество возможных предметов
-   UPROPERTY(EditAnywhere, BlueprintReadWrite) int32 Quantity_Max;
+   UPROPERTY(EditAnywhere, BlueprintReadWrite) int32 Quantity_Max = 0;
    // Минимальный опыт за получение предмет, для добывающих профессий
-   UPROPERTY(EditAnywhere, BlueprintReadWrite) int32 Exp_Min;
+   UPROPERTY(EditAnywhere, BlueprintReadWrite) int32 Exp_Min = 0;
    // Максимальный опыт за получение предмета, для добывающих профессий
-   UPROPERTY(EditAnywhere, BlueprintReadWrite) int32 Exp_Max;
+   UPROPERTY(EditAnywhere, BlueprintReadWrite) int32 Exp_Max = 0;
    // Шанс выпадения предмета, от 0.0(1) до 1.0. Еденица для предметов со 100% шансом выпадения.
-   UPROPERTY(EditAnywhere, BlueprintReadWrite) float Chance_Drop;
+   UPROPERTY(EditAnywhere, BlueprintReadWrite) float Chance_Drop = 0.0;
 
 };
 
@@ -177,9 +177,9 @@ USTRUCT(BlueprintType) struct FST_Drop_Harvest : public FTableRowBase
 
 public:
    // Опыт в уровень за итерацию
-   UPROPERTY(EditAnywhere, BlueprintReadWrite) int32 Prof_Lvl_Exp;
+   UPROPERTY(EditAnywhere, BlueprintReadWrite) int32 Prof_Lvl_Exp = 0;
    // Опыт в навыки за итерацию
-   UPROPERTY(EditAnywhere, BlueprintReadWrite) int32 Prof_Points_Exp;
+   UPROPERTY(EditAnywhere, BlueprintReadWrite) int32 Prof_Points_Exp = 0;
    // Массив возможных получаемых предметов, минимальное и максимальное количество и шансы
    UPROPERTY(EditAnywhere, BlueprintReadWrite) TArray<FST_Drop_Harvest_Item> Harvest_Drops;
 };
@@ -191,13 +191,13 @@ USTRUCT(BlueprintType) struct FST_Drop_Enemy_Item
 
 public:
    // Имя из таблицы для следующей реплики 
-   UPROPERTY(EditAnywhere, BlueprintReadWrite) int32 Index_Item;
+   UPROPERTY(EditAnywhere, BlueprintReadWrite) int32 Index_Item = 0;
    // Минимальное количество возможных предметов
-   UPROPERTY(EditAnywhere, BlueprintReadWrite) int32 Quantity_Min;
+   UPROPERTY(EditAnywhere, BlueprintReadWrite) int32 Quantity_Min = 0;
    // Максимальное количество возможных предметов
-   UPROPERTY(EditAnywhere, BlueprintReadWrite) int32 Quantity_Max;
+   UPROPERTY(EditAnywhere, BlueprintReadWrite) int32 Quantity_Max = 0;
    // Шанс выпадения предмета, от 0.0(1) до 1.0. Еденица для предметов со 100% шансом выпадения.
-   UPROPERTY(EditAnywhere, BlueprintReadWrite) float Chance_Drop;
+   UPROPERTY(EditAnywhere, BlueprintReadWrite) float Chance_Drop = 0.0;
 };
 
 // Для таблицы дропа с мобов
@@ -207,14 +207,14 @@ USTRUCT(BlueprintType) struct FST_Drop_Enemy : public FTableRowBase
 
 public:
    // Опыт в уровень за убийство
-   UPROPERTY(EditAnywhere, BlueprintReadWrite) int32 Enemy_Exp;
+   UPROPERTY(EditAnywhere, BlueprintReadWrite) int32 Enemy_Exp = 0;
    // Карма за убийство
-   UPROPERTY(EditAnywhere, BlueprintReadWrite) int32 Enemy_Carma;
+   UPROPERTY(EditAnywhere, BlueprintReadWrite) int32 Enemy_Carma = 0;
    // Массив возможных получаемых предметов, минимальное и максимальное количество и шансы
    UPROPERTY(EditAnywhere, BlueprintReadWrite) TArray<FST_Drop_Enemy_Item> Enemy_Drops;
 };
 //----------------------------------------------------------------------------------------------------------------------------------------------------
-// TESTContainer Item
+// TEST Container Item
 USTRUCT(BlueprintType) struct FS_TEST_Item_Container
 {
    GENERATED_BODY()   
@@ -230,6 +230,37 @@ public:
    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Item") bool Blocked = false;
    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Item") bool Crafted = false;
    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Item") FInstancedStruct ItemData;
+
+};
+//----------------------------------------------------------------------------------------------------------------------------------------------------
+// Combat Skill
+USTRUCT(BlueprintType) struct FS_Combat_Skill
+{
+   GENERATED_BODY()   
+
+public:
+   UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Combat Skill") int32 Skill_Index_ = 0;
+   UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Combat Skill") int32 Skill_Level = 0;
+   UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Combat Skill") E_Combat_Skill_Keys Skill_Key = E_Combat_Skill_Keys::None;
+};
+//----------------------------------------------------------------------------------------------------------------------------------------------------
+// Combat Skill Attribute (DATA TABLE)
+USTRUCT(BlueprintType) struct FST_Combat_Skill_Attribute
+{
+   GENERATED_BODY()   
+
+public:
+   UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Combat Skill") int32 Skill_Targets = 1;
+
+   UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Combat Skill") int32 Skill_Required_Points_Level = 0;
+
+   UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Combat Skill") float Skill_Damage = 0.0;
+   UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Combat Skill") float Skill_Cooldown = 0.0;
+   UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Combat Skill") float Skill_Status_Chance = 0.0;
+   UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Combat Skill") float Skill_Radius = 0.0;
+   UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Combat Skill") float Skill_Cost_Mana = 0.0;
+   UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Combat Skill") float Skill_Cost_Stamina = 0.0;
+   UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Combat Skill") float Skill_Duration = 0.0;
 
 };
 //----------------------------------------------------------------------------------------------------------------------------------------------------

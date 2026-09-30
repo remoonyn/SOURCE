@@ -175,3 +175,38 @@ UENUM(BlueprintType) enum class E_Dialog_Type : uint8
    Trade        UMETA(DisplayName = "Trade"),
    Leave        UMETA(DisplayName = "Leave")
 };
+
+UENUM(BlueprintType) enum class E_Combat_Skill_Keys : uint8
+{
+   None           UMETA(DisplayName = "None"),
+   LBM            UMETA(DisplayName = "LBM"),
+   RBM            UMETA(DisplayName = "RBM"),
+   TAB            UMETA(DisplayName = "TAB"),
+   Q              UMETA(DisplayName = "Q"),
+   E              UMETA(DisplayName = "E"),
+   F              UMETA(DisplayName = "F"),
+   Z              UMETA(DisplayName = "Z"),
+   X              UMETA(DisplayName = "X"),
+   C              UMETA(DisplayName = "C"),
+   V              UMETA(DisplayName = "V"),
+   W_LBM          UMETA(DisplayName = "W+LBM"),
+   W_RBM          UMETA(DisplayName = "W+RBM"),
+   W_Q            UMETA(DisplayName = "W+Q"),
+   W_E            UMETA(DisplayName = "W+E"),
+   W_F            UMETA(DisplayName = "W+F"),
+   S_LBM          UMETA(DisplayName = "S+LBM"),
+   S_RBM          UMETA(DisplayName = "S+RBM"),
+   S_Q            UMETA(DisplayName = "S+Q"),
+   S_E            UMETA(DisplayName = "S+E"),
+   S_F            UMETA(DisplayName = "S+F"),
+   Shift_LBM      UMETA(DisplayName = "Shift+LBM"),
+   Shift_RBM      UMETA(DisplayName = "Shift+RBM"),
+   Shift_Q        UMETA(DisplayName = "Shift+Q"),
+   Shift_E        UMETA(DisplayName = "Shift+E"),
+   Shift_F        UMETA(DisplayName = "Shift+F"),
+   Shift_Z        UMETA(DisplayName = "Shift+Z"),
+   Shift_X        UMETA(DisplayName = "Shift+X"),
+   Shift_C        UMETA(DisplayName = "Shift+C"),
+   Shift_V        UMETA(DisplayName = "Shift+V"),
+   Shift_Space    UMETA(DisplayName = "Shift+Space")
+};
